@@ -11,7 +11,7 @@ name: Linux_Container_Workflow
 on:
   push:
     branches:
-    - feature/timerTrigger
+    - master
 
 jobs:
   build-and-deploy:
