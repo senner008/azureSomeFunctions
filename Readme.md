@@ -1,0 +1,1 @@
+   az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/83973629-b28a-49fd-9f09-5721576561b7/resourceGroups/senner-linux-group --sdk-auth
