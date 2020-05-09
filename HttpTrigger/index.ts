@@ -1,5 +1,5 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-import { STORED_PROCEDURE_GET_USERS } from "../src/SQL/stored_procedure";
+import { STORED_PROCEDURE_GET_USERS } from "../src/SQL/PROCEDURES/PROCEDURE_GET_USERS";
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
     context.log('HTTP trigger function processed a request.');

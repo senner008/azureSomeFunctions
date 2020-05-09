@@ -1,6 +1,8 @@
 
-import { sql_dropTable, sql_createTables, sql_insertUsers } from "./tableCommands";
-import { GET_USERS } from "./stored_procedure";
+import { sql_dropTable, sql_createTables } from "./QUERIES/setupUsers";
+import { _sp_get_users } from "./PROCEDURES/PROCEDURE_GET_USERS";
+import { _sp_insert_user } from "./PROCEDURES/PROCEDURE_INSERT_USER";
+import { _sp_delete_user } from "./PROCEDURES/PROCEDURE_DELETE_USER";
 
 const sql = require('mssql');
 
@@ -47,8 +49,9 @@ async function setupTable() {
         const request = await generateRequest();
         await request.query(sql_dropTable);
         await request.query(sql_createTables);
-        await request.query(sql_insertUsers);
-        await request.query(GET_USERS);
+        await request.query(_sp_get_users);
+        await request.query(_sp_insert_user);
+        await request.query(_sp_delete_user);
     } catch (err) {
         throw err;
     }
