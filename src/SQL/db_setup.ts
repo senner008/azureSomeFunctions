@@ -20,6 +20,7 @@ const options = {
         "idleTimeoutMillis": 30000
     },
     "options": {
+        "enableArithAbort": true,
         "trustedConnection" : true
     }
 };

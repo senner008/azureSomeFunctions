@@ -1,35 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1589054560551" clover="3.2.0">
-  <project timestamp="1589054560551" name="All files">
-    <metrics statements="112" coveredstatements="103" conditionals="15" coveredconditionals="10" methods="17" coveredmethods="17" elements="144" coveredelements="130" complexity="0" loc="112" ncloc="112" packages="6" files="11" classes="11"/>
+<coverage generated="1589055881512" clover="3.2.0">
+  <project timestamp="1589055881512" name="All files">
+    <metrics statements="128" coveredstatements="116" conditionals="15" coveredconditionals="11" methods="19" coveredmethods="18" elements="162" coveredelements="145" complexity="0" loc="128" ncloc="128" packages="7" files="13" classes="13"/>
     <package name="HttpTrigger">
-      <metrics statements="9" coveredstatements="6" conditionals="5" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="9" coveredstatements="8" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="index.ts" path="C:\_gits5\azureTimerFunc\HttpTrigger\index.ts">
-        <metrics statements="9" coveredstatements="6" conditionals="5" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <metrics statements="9" coveredstatements="8" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="cond" truecount="1" falsecount="2"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="9" count="0" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="TimerTrigger">
+      <metrics statements="15" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
+      <file name="index.ts" path="C:\_gits5\azureTimerFunc\TimerTrigger\index.ts">
+        <metrics statements="15" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="__TESTS__.__STUBS__">
-      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="DATE_NOW_STUB.ts" path="C:\_gits5\azureTimerFunc\__TESTS__\__STUBS__\DATE_NOW_STUB.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
       </file>
       <file name="DEFAULT_CONTEXT.ts" path="C:\_gits5\azureTimerFunc\__TESTS__\__STUBS__\DEFAULT_CONTEXT.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+      </file>
+      <file name="DEFAULT_TIMER.ts" path="C:\_gits5\azureTimerFunc\__TESTS__\__STUBS__\DEFAULT_TIMER.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
       </file>
@@ -38,7 +63,7 @@
       <metrics statements="22" coveredstatements="22" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9"/>
       <file name="Evaluator.ts" path="C:\_gits5\azureTimerFunc\src\Evaluator.ts">
         <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
-        <line num="1" count="1" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
@@ -47,122 +72,122 @@
         <line num="21" count="1" type="stmt"/>
         <line num="22" count="1" type="stmt"/>
         <line num="24" count="3" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
       </file>
       <file name="mssqlDate.ts" path="C:\_gits5\azureTimerFunc\src\mssqlDate.ts">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="5" count="9" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
         <line num="17" count="3" type="stmt"/>
         <line num="18" count="3" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.SQL">
       <metrics statements="32" coveredstatements="29" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
       <file name="SQL_REFERENCES.ts" path="C:\_gits5\azureTimerFunc\src\SQL\SQL_REFERENCES.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
-        <line num="21" count="3" type="stmt"/>
-        <line num="22" count="3" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
       </file>
       <file name="db_setup.ts" path="C:\_gits5\azureTimerFunc\src\SQL\db_setup.ts">
         <metrics statements="26" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="27" count="3" type="stmt"/>
-        <line num="29" count="3" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
-        <line num="32" count="3" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="39" count="19" type="stmt"/>
-        <line num="40" count="19" type="stmt"/>
-        <line num="41" count="19" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="48" count="5" type="stmt"/>
-        <line num="49" count="5" type="stmt"/>
-        <line num="50" count="5" type="stmt"/>
-        <line num="51" count="5" type="stmt"/>
-        <line num="52" count="5" type="stmt"/>
-        <line num="53" count="5" type="stmt"/>
-        <line num="54" count="5" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="61" count="3" type="stmt"/>
-        <line num="62" count="3" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="40" count="22" type="stmt"/>
+        <line num="41" count="22" type="stmt"/>
+        <line num="42" count="22" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="49" count="6" type="stmt"/>
+        <line num="50" count="6" type="stmt"/>
+        <line num="51" count="6" type="stmt"/>
+        <line num="52" count="6" type="stmt"/>
+        <line num="53" count="6" type="stmt"/>
+        <line num="54" count="6" type="stmt"/>
+        <line num="55" count="6" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="62" count="4" type="stmt"/>
+        <line num="63" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.SQL.PROCEDURES">
       <metrics statements="36" coveredstatements="33" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
       <file name="PROCEDURE_DELETE_USER.ts" path="C:\_gits5\azureTimerFunc\src\SQL\PROCEDURES\PROCEDURE_DELETE_USER.ts">
         <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
         <line num="30" count="1" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
-        <line num="44" count="3" type="stmt"/>
-        <line num="45" count="3" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="45" count="4" type="stmt"/>
       </file>
       <file name="PROCEDURE_GET_USERS.ts" path="C:\_gits5\azureTimerFunc\src\SQL\PROCEDURES\PROCEDURE_GET_USERS.ts">
         <metrics statements="16" coveredstatements="15" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="23" count="3" type="stmt"/>
-        <line num="29" count="8" type="stmt"/>
-        <line num="30" count="8" type="stmt"/>
-        <line num="31" count="8" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="29" count="9" type="stmt"/>
+        <line num="30" count="9" type="stmt"/>
+        <line num="31" count="9" type="stmt"/>
         <line num="34" count="8" type="cond" truecount="4" falsecount="0"/>
-        <line num="35" count="2" type="stmt"/>
-        <line num="37" count="6" type="stmt"/>
-        <line num="39" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="40" count="2" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="37" count="7" type="stmt"/>
+        <line num="39" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="40" count="1" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
-        <line num="56" count="3" type="stmt"/>
-        <line num="57" count="3" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
       </file>
       <file name="PROCEDURE_INSERT_USER.ts" path="C:\_gits5\azureTimerFunc\src\SQL\PROCEDURES\PROCEDURE_INSERT_USER.ts">
         <metrics statements="10" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="2" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="33" count="5" type="stmt"/>
-        <line num="34" count="5" type="stmt"/>
-        <line num="35" count="5" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="33" count="6" type="stmt"/>
+        <line num="34" count="6" type="stmt"/>
+        <line num="35" count="6" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
-        <line num="50" count="3" type="stmt"/>
-        <line num="51" count="3" type="stmt"/>
+        <line num="50" count="4" type="stmt"/>
+        <line num="51" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.SQL.QUERIES">
       <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="setupUsers.ts" path="C:\_gits5\azureTimerFunc\src\SQL\QUERIES\setupUsers.ts">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="19" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
       </file>
     </package>
   </project>
