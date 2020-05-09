@@ -39,7 +39,7 @@ async function STORED_PROCEDURE_INSERT_USER(user_name : IUser["user_name"], user
 
     } catch (err) {
         throw {
-            message : "Database error!",
+            message : err,
             statusCode : 500
         }
 
