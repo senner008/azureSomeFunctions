@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1589055881512" clover="3.2.0">
-  <project timestamp="1589055881512" name="All files">
+<coverage generated="1589068219312" clover="3.2.0">
+  <project timestamp="1589068219312" name="All files">
     <metrics statements="128" coveredstatements="116" conditionals="15" coveredconditionals="11" methods="19" coveredmethods="18" elements="162" coveredelements="145" complexity="0" loc="128" ncloc="128" packages="7" files="13" classes="13"/>
     <package name="HttpTrigger">
       <metrics statements="9" coveredstatements="8" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -40,15 +40,15 @@
     </package>
     <package name="__TESTS__.__STUBS__">
       <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="DATE_NOW_STUB.ts" path="C:\_gits5\azureTimerFunc\__TESTS__\__STUBS__\DATE_NOW_STUB.ts">
+      <file name="DATE_STUBS.ts" path="C:\_gits5\azureTimerFunc\__TESTS__\__STUBS__\DATE_STUBS.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
         <line num="10" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
-        <line num="12" count="3" type="stmt"/>
       </file>
       <file name="DEFAULT_CONTEXT.ts" path="C:\_gits5\azureTimerFunc\__TESTS__\__STUBS__\DEFAULT_CONTEXT.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
