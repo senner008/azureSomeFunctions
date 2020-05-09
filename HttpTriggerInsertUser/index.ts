@@ -5,6 +5,14 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     context.log('HTTP trigger function processed a request.');
     const password = req.body && req.body.password ? req.body.password : "";
 
+    if (!password || !req.body.user_name) {
+        context.res = {
+            status: 400,
+            body: "Bad request"
+        };
+        return;
+    }
+
     if (password === process.env.MYSECRET_PASSWORD) {
         try {
             await STORED_PROCEDURE_INSERT_USER(req.body.user_name, new Date());
