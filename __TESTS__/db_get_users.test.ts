@@ -2,7 +2,7 @@ import { STORED_PROCEDURE_GET_USERS, IUser } from "../src/SQL/PROCEDURES/PROCEDU
 import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_INSERT_USER";
 
 import { mssqlDate, getUTC } from "../src/mssqlDate";
-import { DATE_NOW_STUB } from "./DATE_NOW_STUB";
+import { DATE_NOW_STUB } from "./__STUBS__/DATE_NOW_STUB";
 
 describe(
   `

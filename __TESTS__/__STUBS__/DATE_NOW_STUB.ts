@@ -1,4 +1,4 @@
-import { mssqlDate, mssqlDateSubtractDays } from "../src/mssqlDate";
+import { mssqlDate, mssqlDateSubtractDays } from "../../src/mssqlDate";
 
 const DATE_NOW_STUB  = mssqlDate(new Date());
 
