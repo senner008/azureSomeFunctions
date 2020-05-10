@@ -1,7 +1,7 @@
 import { STORED_PROCEDURE_GET_USERS, IUser } from "../src/SQL/PROCEDURES/PROCEDURE_GET_USERS";
 import Evaluator from "../src/Evaluator";
 import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_INSERT_USER";
-import { DATE_NOW_STUB, DATE_TWO_MONTHS_AGO_STUB, DATE_FOURTEEN_DAYS_AGO_STUB } from "./__STUBS__/DATE_NOW_STUB";
+import { DATE_NOW_STUB, DATE_THIRTY_DAYS_AGO_STUB, DATE_TWENTY_NINE_DAYS_AGO_STUB } from "./__STUBS__/DATE_STUBS";
 import { STORED_PROCEDURE_DELETE_USER } from "../src/SQL/PROCEDURES/PROCEDURE_DELETE_USER";
 
 describe(
@@ -38,7 +38,7 @@ describe(
 
     it('should not delete user', async (done) => {
 
-        await STORED_PROCEDURE_INSERT_USER("Batman", DATE_FOURTEEN_DAYS_AGO_STUB)
+        await STORED_PROCEDURE_INSERT_USER("Batman", DATE_TWENTY_NINE_DAYS_AGO_STUB)
         const users = await STORED_PROCEDURE_GET_USERS();    
 
         for (let user of users) {
@@ -64,7 +64,7 @@ describe(
 
     it('should return delete user', async (done) => {
 
-        await STORED_PROCEDURE_INSERT_USER("Batman", DATE_TWO_MONTHS_AGO_STUB)
+        await STORED_PROCEDURE_INSERT_USER("Batman", DATE_THIRTY_DAYS_AGO_STUB)
         const users = await STORED_PROCEDURE_GET_USERS();    
 
         for (let user of users) {

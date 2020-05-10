@@ -14,8 +14,8 @@ function mssqlDateSubtractDays (date : any, days) {
 }
 
 function mssqlDateNowIsOneMonthAfter(date : any) {
-    const diff = moment(date).diff(moment(new Date()), 'months');
-    return Math.abs(diff) >= 1;
+    const diff = moment(date).diff(moment(new Date()), 'days');
+    return Math.abs(diff) > 29;
 }
 
 function getUTC (date : any) {
