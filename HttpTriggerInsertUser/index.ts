@@ -1,38 +1,42 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions"
 import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_INSERT_USER";
+import IResponseObject from "../src/IResponseObject";
 
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<IResponseObject> {
+
     const password = req.body && req.body.password ? req.body.password : "";
 
     if (!password || !req.body.user_name) {
-        context.res = {
+        return {
             status: 400,
-            body: "Bad request"
-        };
-        return;
+            message: "Bad request"
+        }
     }
 
     if (password === process.env.MYSECRET_PASSWORD) {
-        try {
-            await STORED_PROCEDURE_INSERT_USER(req.body.user_name, new Date());
-            context.res = {
-                status: 200,
-                body: "User inserted"
-            };
-        } catch(err) {
-            context.res = {
-                status: err.statusCode,
-                body: err.message
-            };
+        return await insertUser(req);
+    }
+
+    return {
+        status: 401,
+        message: "Unauthorized"
+    }
+
+};
+
+async function insertUser (req : HttpRequest) {
+    try {
+        await STORED_PROCEDURE_INSERT_USER(req.body.user_name, new Date());
+        return {
+            status: 201,
+            message: "User inserted!"
+        }
+    } catch (err) {
+        return {
+            status: err.statusCode,
+            message: err.message
         }
     }
-    else {
-        context.res = {
-            status: 401,
-            body: "Unauthorized"
-        };
-    }
-};
+}
 
 export default httpTrigger;

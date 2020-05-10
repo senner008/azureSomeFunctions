@@ -16,9 +16,8 @@ describe(
             };
 
             await STORED_PROCEDURE_INSERT_USER("Batman", DATE_NOW_STUB)
-            await httpTrigger(context, request);
+            const result = await httpTrigger(context, request);
 
-            expect(context.log.mock.calls.length).toBe(1);
-            expect(context.res.body[0].user_name).toEqual("Batman");
+            expect(result[0].user_name).toEqual("Batman");
         })
     });

@@ -14,13 +14,5 @@ module.exports = {
         ignoreCodes: ["TS2345", "TS2322"]
       }
     }
-  },
-  reporters: [
-    "default",
-    ["./node_modules/jest-html-reporter", {
-      "pageTitle": "Online payment test suites",
-      "sort" : "titleAsc",
-      "outputPath" : "coverage/test-report.html"
-    }]
-  ]
+  }
 }
