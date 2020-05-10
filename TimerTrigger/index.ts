@@ -18,10 +18,10 @@ const timerTrigger: AzureFunction = async function (context: Context, myTimer: a
     } catch (err) {
         return;
     }
-    for (let user of users) {
+    for (const user of users) {
         await new Evaluator(user)
-        .ifDueToBeDeleted(() => STORED_PROCEDURE_DELETE_USER(user.user_id))
-        .evaluate();
+            .ifDueToBeDeleted(() => STORED_PROCEDURE_DELETE_USER(user.user_id))
+            .evaluate();
     }
 };
 

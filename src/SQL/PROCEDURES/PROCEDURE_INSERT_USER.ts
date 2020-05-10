@@ -29,7 +29,10 @@ const _sp_insert_user = `
     END CATCH  
 `;
 
-async function STORED_PROCEDURE_INSERT_USER(user_name : IUser["user_name"], user_created_at : IUser["user_created_at"]) : Promise<void> {
+async function STORED_PROCEDURE_INSERT_USER(
+        user_name : IUser["user_name"], 
+        user_created_at : IUser["user_created_at"]
+    ) : Promise<void> {
     try {
         const request = await generateRequest();
         await request
@@ -40,7 +43,7 @@ async function STORED_PROCEDURE_INSERT_USER(user_name : IUser["user_name"], user
     } catch (err) {
         throw {
             message : err,
-            statusCode : 500
+            status : 500
         }
 
     }
