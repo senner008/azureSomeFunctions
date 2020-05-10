@@ -27,7 +27,7 @@ const _sp_delete_user = `
 async function STORED_PROCEDURE_DELETE_USER(user_id : number) : Promise<void> {
     try {
         const request = await generateRequest();
-        const result = await request
+        await request
             .input(procedureVariables.user_id, sql.INT, user_id)
             .execute(procedureNames.DELETE_USER);
 
