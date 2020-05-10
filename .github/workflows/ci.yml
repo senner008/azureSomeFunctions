@@ -11,7 +11,7 @@ name: Linux_Container_Workflow
 on:
   push:
     branches:
-    - feature/gatests
+    - master
 
 jobs:
   build-and-deploy:
@@ -20,10 +20,10 @@ jobs:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@master
 
-    - name: Start Docker for MSSSql
+    - name: Start Docker with MsSql
       run: docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=@passwordSafe111" -e "MSSQL_PID=Express" -p 1433:1433 --name mssql -d mcr.microsoft.com/mssql/server:2017-latest-ubuntu
 
-    - name: Run Tests - MsSql
+    - name: Run Tests - Jest with MsSql Container
       env:
         DB_PASSWORD: '@passwordSafe111'
         DB_USER: 'sa'
