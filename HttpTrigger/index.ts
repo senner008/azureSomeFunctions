@@ -11,7 +11,7 @@ const httpTrigger: AzureFunction =
     catch( err ) {
        return {
            status : err.status,
-           message : err.message
+           body : err.message
        }
     }
 };

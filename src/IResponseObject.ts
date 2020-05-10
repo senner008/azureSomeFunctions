@@ -1,5 +1,5 @@
 interface IResponseObject {
-    message  : string;
+    body  : string;
     status : number;
 }
 

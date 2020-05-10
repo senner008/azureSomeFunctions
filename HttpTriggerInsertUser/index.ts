@@ -9,7 +9,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     if (!password || !req.body.user_name) {
         return {
             status: 400,
-            message: "Bad request"
+            body: "Bad request"
         }
     }
 
@@ -19,7 +19,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
     return {
         status: 401,
-        message: "Unauthorized"
+        body: "Unauthorized"
     }
 
 };
@@ -29,12 +29,12 @@ async function insertUser (req : HttpRequest) {
         await STORED_PROCEDURE_INSERT_USER(req.body.user_name, new Date());
         return {
             status: 201,
-            message: "User inserted!"
+            body: "User inserted!"
         }
     } catch (err) {
         return {
             status: err.statusCode,
-            message: err.message
+            body: err.message
         }
     }
 }

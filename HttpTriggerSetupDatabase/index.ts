@@ -9,7 +9,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     if (!password || !req.body.reset_database) {
         return {
             status: 400,
-            message: "Bad request"
+            body: "Bad request"
         }
     }
 
@@ -17,13 +17,13 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
         await setupTable();
         return {
             status : 200,
-            message : "Database cleared and ready"
+            body : "Database cleared and ready"
         }
     }
 
     return {
         status: 401,
-        message: "Unauthorized"
+        body: "Unauthorized"
     }  
 };
 
