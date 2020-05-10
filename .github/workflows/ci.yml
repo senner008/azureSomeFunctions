@@ -26,7 +26,7 @@ jobs:
     - name: Run Tests - MsSql
       env:
         DB_PASSWORD: Server=localhost;user id=sa;password=@passwordSafe111
-      run: npm test
+      run: npm install && npm test
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
