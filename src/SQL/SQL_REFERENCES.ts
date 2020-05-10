@@ -1,4 +1,3 @@
-
 const tablesNames = {
     user: "user_table"
 }
@@ -14,8 +13,6 @@ const procedureVariables = {
     user_name : "user_name_var",
     user_created_at : "user_created_at_var",
 }
-
-
 
 export {
     procedureNames,

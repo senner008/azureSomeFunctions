@@ -3,10 +3,9 @@ import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_IN
 import { DATE_NOW_STUB } from "./__STUBS__/DATE_STUBS";
 const context = require('./__STUBS__/DEFAULT_CONTEXT')
 
-
 describe(
     `
-      Evaluate user created now
+      Call Http trigger
     `,
     () => {
 

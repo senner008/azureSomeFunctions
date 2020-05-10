@@ -32,7 +32,7 @@ const _sp_insert_user = `
 async function STORED_PROCEDURE_INSERT_USER(user_name : IUser["user_name"], user_created_at : IUser["user_created_at"]) : Promise<void> {
     try {
         const request = await generateRequest();
-        const result = await request
+        await request
             .input(procedureVariables.user_name, sql.VarChar(50), user_name)
             .input(procedureVariables.user_created_at, sql.DATETIME, user_created_at)
             .execute(procedureNames.INSERT_USER);

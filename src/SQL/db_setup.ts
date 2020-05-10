@@ -1,12 +1,24 @@
-
-import { sql_dropTable, sql_createTables } from "./QUERIES/setupUsers";
 import { _sp_get_users } from "./PROCEDURES/PROCEDURE_GET_USERS";
 import { _sp_insert_user } from "./PROCEDURES/PROCEDURE_INSERT_USER";
 import { _sp_delete_user } from "./PROCEDURES/PROCEDURE_DELETE_USER";
+import { tablesNames } from "./SQL_REFERENCES";
 
 const sql = require('mssql');
-
 require('dotenv').config();
+
+const sql_dropTable = `
+    DROP TABLE IF EXISTS ${tablesNames.user}
+`;
+
+const sql_createTables = `
+    Set DateFormat YMD; 
+
+    CREATE TABLE ${tablesNames.user}(
+        user_id int IDENTITY(1,1) PRIMARY KEY,
+        user_name varchar(50) NOT NULL,
+        user_created_at DATETIME NOT NULL
+    );
+`;
 
 const options = {
     "user":  process.env.DB_USER,
