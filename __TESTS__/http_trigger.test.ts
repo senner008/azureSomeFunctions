@@ -9,11 +9,12 @@ describe(
     `,
     () => {
 
-        it('Http trigger should return known text', async () => {
+        it('should return users', async () => {
 
             const request = {
-                query: { name: 'Bill' }
+                query: "Something"
             };
+
             await STORED_PROCEDURE_INSERT_USER("Batman", DATE_NOW_STUB)
             await httpTrigger(context, request);
 

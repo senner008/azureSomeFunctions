@@ -38,7 +38,7 @@ describe(
   `,
   () => {
 
-    it('should return delete user', async (done) => {
+    it('should delete user', async (done) => {
 
       await STORED_PROCEDURE_INSERT_USER("Batman", DATE_THIRTY_DAYS_AGO_STUB)
       const users = await STORED_PROCEDURE_GET_USERS();
@@ -64,11 +64,11 @@ describe(
 
 describe(
   `
-      Evaluate user created now
+      Evaluate multiple users
     `,
   () => {
 
-    it('should not delete user', async (done) => {
+    it('should delete 1 out of two users', async (done) => {
 
       await STORED_PROCEDURE_INSERT_USER("Batman", DATE_NOW_STUB)
       await STORED_PROCEDURE_INSERT_USER("Superman", DATE_THIRTY_DAYS_AGO_STUB)
