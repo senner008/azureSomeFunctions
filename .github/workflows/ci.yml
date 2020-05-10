@@ -30,7 +30,7 @@ jobs:
         DB_SERVER : 'localhost'
         DB_DATABASE : 'tempdb'
         DB_PORT : 1433
-      run: npm install && npm test
+      run: npm install && npm test-remote
     
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
