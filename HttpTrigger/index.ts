@@ -3,16 +3,24 @@ import { STORED_PROCEDURE_GET_USERS, IUser } from "../src/SQL/PROCEDURES/PROCEDU
 import IResponseObject from "../src/IResponseObject";
 
 const httpTrigger: AzureFunction = 
-    async function (context: Context, req: HttpRequest): Promise<IUser[] | IResponseObject> {
+    async function (context: Context, req: HttpRequest) {
     
     try {
-        return await STORED_PROCEDURE_GET_USERS();
+        const users = await STORED_PROCEDURE_GET_USERS();
+        context.res  = {
+            status : 200,
+            body : JSON.stringify(users),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        
     }
     catch( err ) {
-       return {
-           status : err.status,
-           body : err.message
-       }
+        context.res  = {
+            status : err.status,
+            body : err.message
+        }
     }
 };
 

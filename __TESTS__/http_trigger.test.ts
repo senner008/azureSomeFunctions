@@ -11,13 +11,9 @@ describe(
 
         it('should return users', async () => {
 
-            const request = {
-                query: "Something"
-            };
-
             await STORED_PROCEDURE_INSERT_USER("Batman", DATE_NOW_STUB)
-            const result = await httpTrigger(context, request);
+            await httpTrigger(context, {});
 
-            expect(result[0].user_name).toEqual("Batman");
+            expect(JSON.parse(context.res.body)[0].user_name).toEqual('Batman');
         })
     });
