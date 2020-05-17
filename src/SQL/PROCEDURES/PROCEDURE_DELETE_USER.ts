@@ -1,6 +1,6 @@
 
 const sql = require('mssql')
-import { procedureNames, tablesNames, procedureVariables } from "../SQL_REFERENCES";
+import { procedureNames, tablesNames, procedureVariables, columnNames } from "../SQL_REFERENCES";
 import { generateRequest } from "../db_setup";
 
 const _sp_delete_user = `
@@ -14,7 +14,7 @@ const _sp_delete_user = `
         BEGIN TRY
 
             DELETE FROM ${tablesNames.user}
-                WHERE user_id = @${procedureVariables.user_id}
+                WHERE ${columnNames.USER_ID} = @${procedureVariables.user_id}
             COMMIT TRAN
 
         END TRY
