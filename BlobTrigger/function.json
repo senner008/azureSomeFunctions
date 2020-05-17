@@ -5,6 +5,7 @@
       "type": "blobTrigger",
       "direction": "in",
       "path": "test/{name}",
+      "dataType": "binary",
       "connection": ""
     }
   ],

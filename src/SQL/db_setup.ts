@@ -24,6 +24,7 @@ const sql_createTables = `
     CREATE TABLE ${tablesNames.file_name}(
         ${columnNames.FILE_NAME_ID} int IDENTITY(1,1) PRIMARY KEY,
         ${columnNames.FILE_NAME_NAME} varchar(150) NOT NULL,
+        ${columnNames.FIRST_LINE} varchar(50) NOT NULL,
         ${columnNames.FILE_NAME_CREATED_AT} DATETIME NOT NULL
     );
 `;

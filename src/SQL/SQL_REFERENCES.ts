@@ -16,7 +16,8 @@ const columnNames = {
     USER_CREATED_AT : "user_created_at",
     FILE_NAME_ID : "file_name_id",
     FILE_NAME_NAME : "file_name_name",
-    FILE_NAME_CREATED_AT : "file_name_created_at"
+    FILE_NAME_CREATED_AT : "file_name_created_at",
+    FIRST_LINE : "file_line"
 }
 
 const procedureVariables = {
@@ -25,7 +26,8 @@ const procedureVariables = {
     user_created_at : columnNames.USER_CREATED_AT + "var",
     file_name_id : columnNames.FILE_NAME_ID + "var",
     file_name_name : columnNames.FILE_NAME_NAME + "var",
-    file_name_created_at : columnNames.FILE_NAME_CREATED_AT + "var"
+    file_name_created_at : columnNames.FILE_NAME_CREATED_AT + "var",
+    file_first_line : columnNames.FIRST_LINE + "var",
 }
 
 export {
