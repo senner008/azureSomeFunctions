@@ -1,4 +1,4 @@
-import { mssqlDateNowIsOneMonthAfter } from "./mssqlDate";
+import { mssqlDateNowIsOneMonthAfter, mssqlDateNowIsAfterTimeToLive } from "./mssqlDate";
 import { IUser } from "./SQL/PROCEDURES/PROCEDURE_GET_USERS";
 
 class Evaluator implements IEvaluator {
@@ -11,8 +11,10 @@ class Evaluator implements IEvaluator {
     }
     
     ifDueToBeDeleted(func: any): this {
+        console.log(new Date())
+        console.log(this.user.user_time_to_live)
         return this._setValidationState(
-            mssqlDateNowIsOneMonthAfter(this.user.user_created_at),
+            mssqlDateNowIsAfterTimeToLive(this.user.user_time_to_live),
             func);
     }
 

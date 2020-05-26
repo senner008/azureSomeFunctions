@@ -3,7 +3,8 @@ import Evaluator from "../src/Evaluator";
 import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_INSERT_USER";
 import {
   DATE_NOW_STUB, DATE_THIRTY_DAYS_AGO_STUB,
-  DATE_TWENTY_NINE_DAYS_AGO_STUB
+  DATE_TWENTY_NINE_DAYS_AGO_STUB,
+  DATE_NOW_STUB_PLUS_SECONDS_100
 } from "./__STUBS__/DATE_STUBS";
 import { STORED_PROCEDURE_DELETE_USER } from "../src/SQL/PROCEDURES/PROCEDURE_DELETE_USER";
 
@@ -15,7 +16,7 @@ describe(
 
     it('should not delete user', async (done) => {
 
-      await STORED_PROCEDURE_INSERT_USER("Batman", DATE_TWENTY_NINE_DAYS_AGO_STUB)
+      await STORED_PROCEDURE_INSERT_USER("Batman", DATE_TWENTY_NINE_DAYS_AGO_STUB, DATE_NOW_STUB_PLUS_SECONDS_100)
       const users = await STORED_PROCEDURE_GET_USERS();
 
       for (let user of users) {
@@ -34,13 +35,13 @@ describe(
 
 describe(
   `
-    Evaluate user created 30 days ago
+    Evaluate user created 30 days ago to be deleted 29 days ago
   `,
   () => {
 
     it('should delete user', async (done) => {
 
-      await STORED_PROCEDURE_INSERT_USER("Batman", DATE_THIRTY_DAYS_AGO_STUB)
+      await STORED_PROCEDURE_INSERT_USER("Batman", DATE_THIRTY_DAYS_AGO_STUB, DATE_TWENTY_NINE_DAYS_AGO_STUB)
       const users = await STORED_PROCEDURE_GET_USERS();
 
       for (let user of users) {
@@ -70,8 +71,8 @@ describe(
 
     it('should delete 1 out of two users', async (done) => {
 
-      await STORED_PROCEDURE_INSERT_USER("Batman", DATE_NOW_STUB)
-      await STORED_PROCEDURE_INSERT_USER("Superman", DATE_THIRTY_DAYS_AGO_STUB)
+      await STORED_PROCEDURE_INSERT_USER("Batman", DATE_NOW_STUB, DATE_NOW_STUB_PLUS_SECONDS_100)
+      await STORED_PROCEDURE_INSERT_USER("Superman", DATE_THIRTY_DAYS_AGO_STUB, DATE_TWENTY_NINE_DAYS_AGO_STUB)
       const users = await STORED_PROCEDURE_GET_USERS();
 
       for (let user of users) {

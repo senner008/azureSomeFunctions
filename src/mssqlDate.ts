@@ -9,6 +9,11 @@ function mssqlDate (date : any) {
     return dateFormat(moment(date));
 }
 
+function mssqlDateAddSeconds (date : any, seconds) {
+    return dateFormat(moment(date).add(seconds, "seconds"));
+}
+
+
 function mssqlDateSubtractDays (date : any, days) {
     return dateFormat(moment(date).subtract(days, "days"));
 }
@@ -16,6 +21,10 @@ function mssqlDateSubtractDays (date : any, days) {
 function mssqlDateNowIsOneMonthAfter(date : any) {
     const diff = moment(date).diff(moment(new Date()), 'days');
     return Math.abs(diff) > 29;
+}
+
+function mssqlDateNowIsAfterTimeToLive(date : any): boolean {
+    return moment(new Date()).isAfter(moment(date));
 }
 
 function getUTC (date : any) {
@@ -26,5 +35,7 @@ export {
     mssqlDate, 
     mssqlDateNowIsOneMonthAfter,
     mssqlDateSubtractDays,
-    getUTC
+    getUTC,
+    mssqlDateAddSeconds,
+    mssqlDateNowIsAfterTimeToLive
 }

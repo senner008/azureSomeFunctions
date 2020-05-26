@@ -50,6 +50,7 @@ interface IUser {
     user_id : number;
     user_name : string;
     user_created_at : Date;
+    user_time_to_live: Date;
 }
 
 export {

@@ -6,7 +6,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
     const password = req.body && req.body.password ? req.body.password : "";
 
-    if (!password || !req.body.user_name) {
+    if (!password || !req.body.user_name || !req.body.user_time_to_live) {
         return {
             status: 400,
             body: "Bad request"
@@ -26,7 +26,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
 async function insertUser (req : HttpRequest) {
     try {
-        await STORED_PROCEDURE_INSERT_USER(req.body.user_name, new Date());
+        await STORED_PROCEDURE_INSERT_USER(req.body.user_name, new Date(), new Date(req.body.user_time_to_live));
         return {
             status: 201,
             body: "User inserted!"

@@ -1,6 +1,7 @@
 import { AzureFunction, Context } from "@azure/functions"
-import { PROCEDURE_INSERT_BLOB_UPLOAD_FILE_NAME } from "../src/SQL/PROCEDURES/PROCEDURE_INSERT_BLOB_UPLOAD_FILE_NAME";
-import { carBrandValidate, getCarBrandName } from "../src/carBrandName";
+import { getUserList } from "../src/getUserList";
+import userNameValidate from "../src/userValidate";
+import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_INSERT_USER";
 
 const blobTrigger: AzureFunction = async function (context: Context, myBlob: any): Promise<void> {
     context.log(
@@ -12,14 +13,17 @@ const blobTrigger: AzureFunction = async function (context: Context, myBlob: any
     );
 
     try {
-        const carBrandName = getCarBrandName(myBlob);
-        carBrandValidate(carBrandName);
-        await PROCEDURE_INSERT_BLOB_UPLOAD_FILE_NAME(context.bindingData.name, carBrandName, new Date()); 
+        const userList = getUserList(myBlob);
+        for (const user of userList) {
+            const [userName, timeToLive] = user.split(',')
+            userNameValidate(user);
+            await STORED_PROCEDURE_INSERT_USER(userName, new Date(), new Date(timeToLive)); 
         
-        context.log
-        (
-            `A file by the name of ${context.bindingData.name} was inserted with a value of ${carBrandName}`
-        );
+            context.log
+            (
+                `A user by the name of ${user} was inserted from the file ${context.bindingData.name}`
+            );
+        }
 
         }
     catch( err ) {
