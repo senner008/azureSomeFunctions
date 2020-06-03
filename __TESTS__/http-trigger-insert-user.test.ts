@@ -1,8 +1,17 @@
 import httpTriggerIsertUser from "../HttpTriggerInsertUser/index"
 const context = require('./__STUBS__/DEFAULT_CONTEXT')
 const fs = require('fs');
-const rawdata = fs.readFileSync('local.settings.json');
-const data = JSON.parse(rawdata);
+
+function getEnvironmentPassword () {
+    if (process.env.ENVIRONMENT === "DEVELOPMENT") {
+        const rawdata = fs.readFileSync('local.settings.json');
+        return JSON.parse(rawdata).Values.MYSECRET_PASSWORD;
+    } else {
+        return process.env.MYSECRET_PASSWORD;
+    }
+}
+
+
 
 describe(
     `
@@ -12,9 +21,9 @@ describe(
 
         it('should insert user', async () => {
 
-            process.env.MYSECRET_PASSWORD = data.Values.MYSECRET_PASSWORD;
+            process.env.MYSECRET_PASSWORD = getEnvironmentPassword();
             const body = {
-                "password" : data.Values.MYSECRET_PASSWORD,
+                "password" : getEnvironmentPassword(),
                 "user_name" : "Superman",
                 "user_time_to_live": "2029-08-30 12:00:00"
             }
