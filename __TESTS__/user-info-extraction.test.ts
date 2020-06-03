@@ -3,6 +3,7 @@ import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_IN
 import { DATE_NOW_STUB, DATE_NOW_STUB_PLUS_SECONDS_100 } from "./__STUBS__/DATE_STUBS";
 import extractUserAndTimeToLive from "../src/extractUserAndTimeToLive";
 import userTimeToLiveValidate from "../src/userTimeToLiveValidate";
+import userNameValidate from "../src/userValidate";
 const context = require('./__STUBS__/DEFAULT_CONTEXT')
 
 describe(
@@ -17,6 +18,20 @@ describe(
             const [userName, timeToLive] = extractUserAndTimeToLive(userInfo);
 
             expect(userName).toEqual('Buller');
+        });
+
+        
+        it('should throw when user name is invalid', async () => {
+
+            const userName = '<script>alert("xss");</script>';
+            var result;
+            try {
+                userNameValidate(userName);
+            } catch (err) {
+                result = err;
+            }
+
+            expect(result).toEqual('Invalid input!');
         });
 
         it('should extract user time to live date', async () => {
