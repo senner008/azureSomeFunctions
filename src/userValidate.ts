@@ -1,6 +1,6 @@
 const xss = require("xss");
-export default function userNameValidate(carbrand : string) {
-    if (carbrand.length > 50 || xss(carbrand) !== carbrand) {
+export default function userNameValidate(user : string) {
+    if (user.length > 50 || xss(user) !== user) {
         throw "Invalid input!" 
     }
 }
