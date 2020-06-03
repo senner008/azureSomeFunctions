@@ -19,6 +19,7 @@ const sql_createTables = `
         ${columnNames.USER_CREATED_AT} DATETIME NOT NULL,
         ${columnNames.USER_TIME_TO_LIVE} DATETIME NOT NULL
     );
+
 `;
 
 const options = {

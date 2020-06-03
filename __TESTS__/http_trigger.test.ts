@@ -1,5 +1,4 @@
 import httpTrigger from "../HttpTrigger/index"
-import httpTriggerIsertUser from "../HttpTriggerInsertUser/index"
 
 import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_INSERT_USER";
 import { DATE_NOW_STUB, DATE_NOW_STUB_PLUS_SECONDS_100 } from "./__STUBS__/DATE_STUBS";

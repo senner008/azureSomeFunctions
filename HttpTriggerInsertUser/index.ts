@@ -3,7 +3,6 @@ import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_IN
 import IResponseObject from "../src/IResponseObject";
 import userNameValidate from "../src/userValidate";
 import userTimeToLiveValidate from "../src/userTimeToLiveValidate";
-import { insertUser } from "../src/insertUser";
 
 const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<IResponseObject> {
 
@@ -18,7 +17,9 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
     if (password === process.env.MYSECRET_PASSWORD) {
         try {
-            await insertUser(req.body.user_name, req.body.user_time_to_live);
+            userNameValidate(req.body.user_name);
+            userTimeToLiveValidate( req.body.user_time_to_live);
+            await STORED_PROCEDURE_INSERT_USER(req.body.user_name, new Date(), new Date( req.body.user_time_to_live)); 
             return {
                 status: 201,
                 body: "User inserted!"
