@@ -4,7 +4,7 @@ import userNameValidate from "../src/userValidate";
 import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_INSERT_USER";
 import extractUserAndTimeToLive from "../src/extractUserAndTimeToLive";
 import userTimeToLiveValidate from "../src/userTimeToLiveValidate";
-import { insertUser } from "../HttpTriggerInsertUser";
+import { insertUser } from "../src/insertUser";
 
 const blobTrigger: AzureFunction = async function (context: Context, myBlob: any): Promise<void> {
     context.log(
