@@ -35,7 +35,7 @@ const blobTrigger: AzureFunction = async function (context: Context, myBlob: any
         }
         await sendEmail(
             "Blob storage file added", 
-            context.bindingData.name
+           "message"
         );
     }
     catch( err ) {
