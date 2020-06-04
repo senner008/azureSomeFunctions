@@ -30,3 +30,6 @@ export async function sendEmail (subject: string, message: string) {
   }); 
 
 }
+(async () => {
+ await sendEmail("sdsad", "dsadsad")
+})();

@@ -36,7 +36,7 @@
     "jest-html-reporter": "^3.0.0",
     "moment": "^2.24.0",
     "mssql": "^6.2.0",
-    "nodemailer": "^6.4.8",
+    "nodemailer": "*",
     "ts-node": "^8.8.1",
     "uniqid": "^5.2.0",
     "xss": "^1.0.6"
