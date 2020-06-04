@@ -1,8 +1,7 @@
 
 var nodemailer = require('nodemailer');
-
-export async function sendEmail (subject, message) {
-  console.log("--------------------------------------------------------------------------------------------")
+require('dotenv').config();
+export async function sendEmail (subject: string, message: string) {
   return new Promise((resolve,reject) => { 
     var transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -20,7 +19,6 @@ export async function sendEmail (subject, message) {
     };
     
     transporter.sendMail(mailOptions, function(error, info){
-      console.log("--------------------------------------------------------------------------------------------")
       if (error) {
         console.log(error);
         reject(error)
