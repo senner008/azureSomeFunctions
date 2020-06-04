@@ -14,6 +14,8 @@ const blobTrigger: AzureFunction = async function (context: Context, myBlob: any
         myBlob.length, 
         "Bytes"
     );
+    const password = process.env.EMAIL_PASSWORD
+    context.log(password)
 
     try {
         const userList = getUserList(myBlob);
@@ -25,7 +27,7 @@ const blobTrigger: AzureFunction = async function (context: Context, myBlob: any
         for (const userInfo of userList) {
             const [userName, timeToLive] = extractUserAndTimeToLive(userInfo);
             await STORED_PROCEDURE_INSERT_USER(userName, new Date(), new Date(timeToLive)); 
-            const password = process.env.EMAIL_PASSWORD
+         
             const logMessage =  `A user by the name of ${userInfo} was inserted from the file ${context.bindingData.name}`
          
             context.log
@@ -35,14 +37,16 @@ const blobTrigger: AzureFunction = async function (context: Context, myBlob: any
         }
         await sendEmail(
             "Blob storage file added", 
-           "message"
+           "message",
+           password
         );
     }
     catch( err ) {
 
         await sendEmail(
             "Blob storage file error", 
-            err
+            err,
+            password
         );
         context.log
         (

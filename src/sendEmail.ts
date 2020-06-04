@@ -1,13 +1,13 @@
 
 var nodemailer = require('nodemailer');
 require('dotenv').config();
-export async function sendEmail (subject: string, message: string) {
+export async function sendEmail (subject: string, message: string, pass : string) {
   return new Promise((resolve,reject) => { 
     var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: 'nielshtg@gmail.com',
-        pass: process.env.EMAIL_PASSWORD
+        pass: pass
       }
     });
     
@@ -30,6 +30,3 @@ export async function sendEmail (subject: string, message: string) {
   }); 
 
 }
-(async () => {
- await sendEmail("sdsad", "dsadsad")
-})();
