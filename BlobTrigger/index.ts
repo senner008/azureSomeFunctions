@@ -5,6 +5,8 @@ import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_IN
 import extractUserAndTimeToLive from "../src/extractUserAndTimeToLive";
 import userTimeToLiveValidate from "../src/userTimeToLiveValidate";
 import { sendEmail } from "../src/sendEmail";
+var moment = require('moment');
+moment().format();
 
 const blobTrigger: AzureFunction = async function (context: Context, myBlob: any): Promise<void> {
     context.log(
@@ -15,9 +17,10 @@ const blobTrigger: AzureFunction = async function (context: Context, myBlob: any
         "Bytes"
     );
     const password = process.env.EMAIL_PASSWORD
-    context.log(password)
-
+    const filename: string = context.bindingData.name.toString();
+  
     try {
+       
         const userList = getUserList(myBlob);
         for (const userInfo of userList) {
              const [userName, timeToLive] = extractUserAndTimeToLive(userInfo);
@@ -26,31 +29,26 @@ const blobTrigger: AzureFunction = async function (context: Context, myBlob: any
         }
         for (const userInfo of userList) {
             const [userName, timeToLive] = extractUserAndTimeToLive(userInfo);
-            await STORED_PROCEDURE_INSERT_USER(userName, new Date(), new Date(timeToLive)); 
-         
-            const logMessage =  `A user by the name of ${userInfo} was inserted from the file ${context.bindingData.name}`
+            await STORED_PROCEDURE_INSERT_USER(userName, new Date(), moment(timeToLive).format()); 
+            const logMessage =  `A user by the name of ${userInfo} was inserted from the file ${filename}`
          
             context.log
             (
                 logMessage
             );
-        }
+        } 
         await sendEmail(
-            "Blob storage file added", 
-           "message",
-           password
-        );
-    }
-    catch( err ) {
-
-        await sendEmail(
-            "Blob storage file error", 
-            err,
+            "Blob storage file added successfully", 
+            filename.split(".")[0] + " file added. Users retrieved",
             password
         );
-        context.log
-        (
-            err
+        
+    }
+    catch( err ) {
+        await sendEmail(
+            "Error in storage file.", 
+            filename.split(".")[0] + " file added. Users not retrieved",
+            password
         );
     }
 };
