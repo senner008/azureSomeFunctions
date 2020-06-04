@@ -1,8 +1,8 @@
-const sql = require('mssql');
-require('dotenv').config();
+
 var nodemailer = require('nodemailer');
 
-export async function sendEmail (subject: string, message: string) {
+export async function sendEmail (subject, message) {
+  console.log("--------------------------------------------------------------------------------------------")
   return new Promise((resolve,reject) => { 
     var transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -14,12 +14,13 @@ export async function sendEmail (subject: string, message: string) {
     
     var mailOptions = {
       from: 'nielshtg@gmail.com',
-      to: 'nielshtg@gmail.com',
+      to: 'nielshtg@hotmail.com',
       subject: subject,
       text: message
     };
     
     transporter.sendMail(mailOptions, function(error, info){
+      console.log("--------------------------------------------------------------------------------------------")
       if (error) {
         console.log(error);
         reject(error)

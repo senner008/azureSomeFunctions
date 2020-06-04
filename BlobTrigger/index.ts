@@ -4,14 +4,17 @@ import userNameValidate from "../src/userValidate";
 import { STORED_PROCEDURE_INSERT_USER } from "../src/SQL/PROCEDURES/PROCEDURE_INSERT_USER";
 import extractUserAndTimeToLive from "../src/extractUserAndTimeToLive";
 import userTimeToLiveValidate from "../src/userTimeToLiveValidate";
+import { sendEmail } from "../src/sendEmail";
 
 const blobTrigger: AzureFunction = async function (context: Context, myBlob: any): Promise<void> {
+    const blobProcess =  
+        `Blob trigger function processed blob Name: 
+        ${context.bindingData.name} 
+        Blob Size: 
+        ${myBlob.length}
+        Bytes`
     context.log(
-        "Blob trigger function processed blob \n Name:", 
-        context.bindingData.name, 
-        "\n Blob Size:", 
-        myBlob.length, 
-        "Bytes"
+        blobProcess
     );
 
     try {
@@ -24,14 +27,29 @@ const blobTrigger: AzureFunction = async function (context: Context, myBlob: any
         for (const userInfo of userList) {
             const [userName, timeToLive] = extractUserAndTimeToLive(userInfo);
             await STORED_PROCEDURE_INSERT_USER(userName, new Date(), new Date(timeToLive)); 
+            const password = process.env.EMAIL_PASSWORD
+            const logMessage =  `A user by the name of ${userInfo} was inserted from the file ${context.bindingData.name}`
+
             context.log
             (
-                `A user by the name of ${userInfo} was inserted from the file ${context.bindingData.name}`
+                logMessage
             );
         }
+        await sendEmail(
+            blobProcess, 
+            `the file ${context.bindingData.name} was added`
+        );
     }
     catch( err ) {
-        context.log(err)
+
+        await sendEmail(
+            blobProcess, 
+            err
+        );
+        context.log
+        (
+            err
+        );
     }
 };
 
